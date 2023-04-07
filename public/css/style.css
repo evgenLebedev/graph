@@ -1,0 +1,14 @@
+canvas {
+  border: 1px solid black;
+}
+
+.person__item {
+  display: flex;
+  align-items: center;
+}
+
+.person__color {
+  width: 20px;
+  height: 2px;
+  margin-left: 5px;
+}

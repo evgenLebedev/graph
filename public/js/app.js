@@ -1,6 +1,5 @@
 let personInfo = {};
 
-let delay = 5000;
 const timerId = setInterval(async () => {
   // Таймер на 5с
   const response = await fetch('http://tt.centr-to.ru/frontend-2023.txt');
@@ -30,16 +29,15 @@ const timerId = setInterval(async () => {
   }
 }, 5000);
 
-const dataTimerId = setInterval(() => {
+setInterval(() => {
   // Таймер на 10мин
-  graph(document.getElementById('graph'), personInfo, (init = false));
+  graph(document.getElementById('graph'), personInfo, false);
 }, 10000); // Для теста стоит 10с
 
 const WIDTH = 600;
 const HEIGHT = 100;
 const DPI_WIDTH = WIDTH * 2;
 const DPI_HEIGHT = HEIGHT;
-const STEP_X = 100;
 
 function graph(canvas, data, init = true) {
   const ctx = canvas.getContext('2d');
@@ -70,8 +68,7 @@ function graph(canvas, data, init = true) {
 
       let number = data[person].number;
       for (let i = 0; i < number.length; i++) {
-        let y = number[i];
-        y = parseFloat(y);
+        let y = parseFloat(number[i]);
         ctx.lineTo((DPI_WIDTH / number.length) * i, DPI_HEIGHT - y);
       }
 
